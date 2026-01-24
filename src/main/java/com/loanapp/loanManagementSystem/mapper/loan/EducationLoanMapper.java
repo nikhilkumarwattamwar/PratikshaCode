@@ -1,9 +1,7 @@
 package com.loanapp.loanManagementSystem.mapper.loan;
 
 import com.loanapp.loanManagementSystem.dto.loan.EducationLoanDto;
-import com.loanapp.loanManagementSystem.dto.loan.HomeLoanDto;
-import com.loanapp.loanManagementSystem.entities.loan.EducationLoan;
-import com.loanapp.loanManagementSystem.entities.loan.HomeLoan;
+import com.loanapp.loanManagementSystem.entities.loan.StudentEducationLoan;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -13,10 +11,10 @@ public interface EducationLoanMapper {
 
 
     @Mapping(target = "loanId", ignore = true)
-    EducationLoan toEntity(EducationLoanDto dto);
+    StudentEducationLoan toEntity(EducationLoanDto dto);
 
-    EducationLoanDto toDto(EducationLoan entity);
+    EducationLoanDto toDto(StudentEducationLoan entity);
 
-    void updateEntity(EducationLoanDto dto, @MappingTarget EducationLoan entity);
+    void updateEntity(EducationLoanDto dto, @MappingTarget StudentEducationLoan entity);
 
 }

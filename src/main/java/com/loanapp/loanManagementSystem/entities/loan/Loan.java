@@ -36,12 +36,18 @@ public class Loan {
 
     private Double interestRate;
 
-    private Integer tenure;
+    private Integer tenureMonths;
 
     @Enumerated(EnumType.STRING)
     private LoanStatus loanStaus;
 
     String rejectionReason;
+
+    @Column
+    private Boolean collateralRequired = false;
+
+    @Column
+    private Boolean guarantorRequired = false;
 
     @Column(name = "isActive", nullable = false)
     private boolean isActive = true;

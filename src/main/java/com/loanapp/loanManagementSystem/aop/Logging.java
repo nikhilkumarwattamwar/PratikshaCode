@@ -18,7 +18,7 @@ public class Logging {
 
     }
 
-    @Pointcut("execution(* com.loanapp.loanManagementSystem.controllers ..*.*(..))")
+    @Pointcut("execution(* com.loanapp.loanManagementSystem.controllers..*.*(..))")
     public void controllerLayer() {
     }
 

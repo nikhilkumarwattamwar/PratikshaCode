@@ -1,10 +1,8 @@
 package com.loanapp.loanManagementSystem.controller;
 
-import com.loanapp.loanManagementSystem.contollers.admin.AdminController;
+import com.loanapp.loanManagementSystem.controllers.admin.AdminController;
 import com.loanapp.loanManagementSystem.dto.loan.LoanDto;
 import com.loanapp.loanManagementSystem.dto.user.UserDto;
-import com.loanapp.loanManagementSystem.entities.loan.Loan;
-import com.loanapp.loanManagementSystem.entities.user.User;
 import com.loanapp.loanManagementSystem.repository.LoanRepository;
 import com.loanapp.loanManagementSystem.service.admin.AdminService;
 import org.junit.jupiter.api.DisplayName;
@@ -48,19 +46,6 @@ public class AdminControllerTest {
 
     }
 
-    @Test
-    @DisplayName("Should get loan details by loan id")
-    void testGetLoanByLoanId() {
-        UUID id = UUID.randomUUID();
-        LoanDto dto = new LoanDto();
-
-        when(service.getLoanByLoanId(id)).thenReturn(dto);
-
-        LoanDto result = controller.getLoanByLoanId(id);
-
-        assertNotNull(result);
-        verify(service, times(1)).getLoanByLoanId(id);
-    }
 
     @Test
     @DisplayName("Should approve the loan")

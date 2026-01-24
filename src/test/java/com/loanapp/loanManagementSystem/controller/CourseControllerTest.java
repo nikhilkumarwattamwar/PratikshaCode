@@ -1,6 +1,6 @@
 package com.loanapp.loanManagementSystem.controller;
 
-import com.loanapp.loanManagementSystem.contollers.user.CourseDetailController;
+import com.loanapp.loanManagementSystem.controllers.user.CourseDetailController;
 import com.loanapp.loanManagementSystem.dto.user.CourseDto;
 import com.loanapp.loanManagementSystem.repository.CourseRepository;
 import com.loanapp.loanManagementSystem.service.user.CourseService;

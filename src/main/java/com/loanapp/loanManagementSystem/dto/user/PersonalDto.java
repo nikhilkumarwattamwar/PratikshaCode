@@ -15,14 +15,10 @@ import lombok.*;
 @AllArgsConstructor
 public class PersonalDto {
 
-    @NotNull(message = "Gender is required")
     private Gender gender;
 
-    @NotNull(message = "Marital status is required")
     private MaritalStatus maritalStatus;
 
-
-    @NotBlank(message = "PAN Card Number is required")
     @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}", message = "Invalid PAN format")
     private String panCardNumber;
 
@@ -36,19 +32,15 @@ public class PersonalDto {
 
     private String voterIdNumber;
 
-    @NotNull(message = "Disability status is required")
     @Enumerated(EnumType.STRING)
     private Disability disability;
 
     private Constitution constitution;
 
-    @NotNull
     private Religion religion;
 
-    @NotNull
     private Education education;
 
-    @NotNull
     private Category category;
 
 }

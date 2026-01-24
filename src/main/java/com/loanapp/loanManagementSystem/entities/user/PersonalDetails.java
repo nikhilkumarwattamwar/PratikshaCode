@@ -25,19 +25,19 @@ public class PersonalDetails {
     @Enumerated(EnumType.STRING)
     private MaritalStatus maritalStatus;
 
-    @Column(name = "panNumber", nullable = false)
+    @Column(name = "panNumber")
     private String panCardNumber;
 
-    @Column(name = "aadharNumber", nullable = false)
+    @Column(name = "aadharNumber")
     private String aadharNumber;
 
-    @Column(name = "passportNumber", nullable = true)
+    @Column(name = "passportNumber")
     private String passportNumber;
 
-    @Column(name = "voterIdNumber", nullable = true)
+    @Column(name = "voterIdNumber")
     private String voterIdNumber;
 
-    @Column(name = "disability", nullable = false)
+    @Column(name = "disability")
     private Disability disability;
 
     @Enumerated(EnumType.STRING)
@@ -56,7 +56,7 @@ public class PersonalDetails {
     @JoinColumn(name = "userId")
     private User user;
 
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "isActive")
     private boolean isActive = true;
 
     @PrePersist

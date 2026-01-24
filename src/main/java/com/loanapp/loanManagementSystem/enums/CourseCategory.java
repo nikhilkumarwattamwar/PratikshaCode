@@ -1,8 +1,10 @@
 package com.loanapp.loanManagementSystem.enums;
 
 public enum CourseCategory {
-    DIPLOMA,
-    UG,
-    PG,
+    UNDERGRADUATE,
+    POSTGRADUATE,
+    DOCTORAL,
+    VOCATIONAL,
+    PROFESSIONAL,
     OTHERS
 }

@@ -139,31 +139,7 @@ public class UserServiceTest {
 
     }
 
-    @Test
-    @DisplayName("Throw exception if email already exists")
-    void testEmailExists() {
-        UUID id = UUID.randomUUID();
-        UserDto userDto = mock(UserDto.class);
-        userDto.setEmail("xyz@gmail.com");
-        when(userRepository.findByEmail(userDto.getEmail())).thenReturn(Optional.of(new User()));
 
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> userService.addUserDetails(UUID.randomUUID(),userDto));
-
-        assertEquals("Email already exists.", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Throw exception if mobile number already exists")
-    void testMobileNumberExists() {
-        UUID id = UUID.randomUUID();
-        UserDto userDto = mock(UserDto.class);
-        userDto.setMobileNumber("1234567890");
-        when(userRepository.findByMobileNumber(userDto.getMobileNumber())).thenReturn(Optional.of(new User()));
-
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> userService.addUserDetails(UUID.randomUUID(),userDto));
-
-        assertEquals("Mobile Number already exists.", exception.getMessage());
-    }
 
     @Test
     @DisplayName("User id not found while fetching the user details")

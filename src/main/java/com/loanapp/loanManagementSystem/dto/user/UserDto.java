@@ -61,7 +61,7 @@ public class UserDto {
     @Valid
     private List<AddressDto> addressList = new ArrayList<>();
 
-    @JsonIgnore
+    @NotNull
     private Role role;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

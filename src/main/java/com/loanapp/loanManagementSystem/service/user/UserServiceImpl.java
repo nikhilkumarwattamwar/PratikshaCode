@@ -3,10 +3,12 @@ package com.loanapp.loanManagementSystem.service.user;
 import com.loanapp.loanManagementSystem.dto.loan.LoginRequestDto;
 import com.loanapp.loanManagementSystem.dto.loan.LoginResponseDto;
 import com.loanapp.loanManagementSystem.dto.user.AddressDto;
+import com.loanapp.loanManagementSystem.dto.user.RegistrationResponseDto;
 import com.loanapp.loanManagementSystem.dto.user.UserDto;
 import com.loanapp.loanManagementSystem.entities.user.Address;
 import com.loanapp.loanManagementSystem.entities.user.EducationDetails;
 import com.loanapp.loanManagementSystem.enums.AddressType;
+import com.loanapp.loanManagementSystem.enums.Role;
 import com.loanapp.loanManagementSystem.exception.BadRequestException;
 import com.loanapp.loanManagementSystem.exception.ResourceNotFoundException;
 import com.loanapp.loanManagementSystem.integrate.FinClient;
@@ -37,27 +39,30 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserDto register(UserDto dto) {
+    public RegistrationResponseDto register(UserDto dto) {
+        Role role = dto.getRole() != null ? dto.getRole() : Role.USER;
         FinClient.AuthRequest request = new FinClient.AuthRequest();
         request.setName(dto.getName());
         request.setEmail(dto.getEmail());
         request.setPassword(dto.getPassword());
-        request.setRole(dto.getRole().name());
+        request.setRole(role.name());
 
         try {
             finClient.register(request)
                     .onErrorMap(ex -> new RuntimeException("Auth service unavailable"))
                     .block();
         } catch (Exception e) {
-            throw new RuntimeException("User registration failed in auth service");
+            throw  e;
         }
 
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setActive(true);
+        user.setRole(role);
 
-        return mapper.toDto(userRepository.save(user));
+        UserDto saved= mapper.toDto(userRepository.save(user));
+        return new RegistrationResponseDto(saved.getId(),"User registered successfully");
     }
 
     @Transactional
@@ -132,6 +137,12 @@ public class UserServiceImpl implements UserService {
             return new ResourceNotFoundException("User ID not found");
         });
 
+        return mapper.toDto(user);
+    }
+
+
+    public UserDto getByUserEmail(String email){
+        User user=userRepository.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException("User email not found"));
         return mapper.toDto(user);
     }
 

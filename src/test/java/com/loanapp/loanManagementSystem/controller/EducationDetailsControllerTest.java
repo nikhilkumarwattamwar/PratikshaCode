@@ -1,6 +1,6 @@
 package com.loanapp.loanManagementSystem.controller;
 
-import com.loanapp.loanManagementSystem.contollers.user.EducationDetailController;
+import com.loanapp.loanManagementSystem.controllers.user.EducationDetailController;
 import com.loanapp.loanManagementSystem.dto.user.EducationDto;
 import com.loanapp.loanManagementSystem.service.user.EducationService;
 import org.junit.jupiter.api.BeforeEach;

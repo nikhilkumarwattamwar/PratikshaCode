@@ -1,0 +1,15 @@
+package com.loanapp.loanManagementSystem.enums;
+
+public enum ChargeType {
+    PROCESSING_FEE,
+    DOCUMENTATION_CHARGE,
+    VALUATION_CHARGE,
+    LEGAL_CHARGE,
+    PREPAYMENT_CHARGE,
+    FORECLOSURE_CHARGE,
+    LATE_PAYMENT_PENALTY,
+    BOUNCE_CHARGE,
+    CANCELLATION_CHARGE,
+    STAMP_DUTY,
+    OTHER
+}

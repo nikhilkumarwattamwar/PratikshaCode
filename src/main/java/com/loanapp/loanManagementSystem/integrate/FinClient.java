@@ -2,6 +2,8 @@ package com.loanapp.loanManagementSystem.integrate;
 
 import com.loanapp.loanManagementSystem.dto.loan.LoginRequestDto;
 import com.loanapp.loanManagementSystem.dto.loan.LoginResponseDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -9,6 +11,9 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class FinClient {
+
+
+    private static final Logger log = LoggerFactory.getLogger(FinClient.class);
 
     private final WebClient webClient;
     private String registerEndpoint;
@@ -27,6 +32,8 @@ public class FinClient {
     }
 
     public Mono<String> register(AuthRequest request) {
+
+        log.info("Calling auth service register for email: {}", request.getEmail());
         return webClient
                 .post()
                 .uri(registerEndpoint)
@@ -37,6 +44,8 @@ public class FinClient {
     }
 
     public Mono<LoginResponseDto> login(LoginRequestDto request) {
+        log.info("Calling auth service login for: {}", request.getUsername());
+
         return webClient
                 .post()
                 .uri(loginEndpoint)

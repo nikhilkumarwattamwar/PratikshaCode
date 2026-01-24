@@ -1,11 +1,8 @@
-package com.loanapp.loanManagementSystem.contollers.user;
+package com.loanapp.loanManagementSystem.controllers.user;
 
 import com.loanapp.loanManagementSystem.dto.user.EducationDto;
 import com.loanapp.loanManagementSystem.service.user.EducationService;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

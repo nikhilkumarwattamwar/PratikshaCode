@@ -1,5 +1,6 @@
 package com.loanapp.loanManagementSystem.entities.user;
 
+import com.loanapp.loanManagementSystem.entities.educationLoan.EducationLoan;
 import com.loanapp.loanManagementSystem.entities.loan.Loan;
 import com.loanapp.loanManagementSystem.enums.CustomerFetchType;
 import com.loanapp.loanManagementSystem.enums.CustomerType;
@@ -80,6 +81,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Loan> loanList;
+
+    @OneToMany(mappedBy = "user")
+    List<EducationLoan> educationLoans;
 
     @Column(name = "isActive")
     private boolean isActive = true;

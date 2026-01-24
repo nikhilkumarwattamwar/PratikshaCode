@@ -1,6 +1,6 @@
 package com.loanapp.loanManagementSystem.controller;
 
-import com.loanapp.loanManagementSystem.contollers.loan.LoanController;
+import com.loanapp.loanManagementSystem.controllers.loan.LoanController;
 import com.loanapp.loanManagementSystem.dto.loan.HomeLoanDto;
 import com.loanapp.loanManagementSystem.dto.loan.LoanDto;
 import com.loanapp.loanManagementSystem.enums.LoanType;

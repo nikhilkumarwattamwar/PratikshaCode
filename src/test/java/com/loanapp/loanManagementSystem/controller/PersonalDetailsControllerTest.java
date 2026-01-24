@@ -1,6 +1,6 @@
 package com.loanapp.loanManagementSystem.controller;
 
-import com.loanapp.loanManagementSystem.contollers.user.PersonalDetailController;
+import com.loanapp.loanManagementSystem.controllers.user.PersonalDetailController;
 import com.loanapp.loanManagementSystem.dto.user.PersonalDto;
 import com.loanapp.loanManagementSystem.service.user.PersonalDetailsService;
 import org.junit.jupiter.api.DisplayName;

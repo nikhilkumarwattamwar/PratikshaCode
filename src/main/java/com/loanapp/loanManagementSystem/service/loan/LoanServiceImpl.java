@@ -82,8 +82,8 @@ public class LoanServiceImpl implements LoanService {
                 if (!(loanDto instanceof EducationLoanDto educationLoanDto)) {
                     throw new RuntimeException("Expected EducationLoanDto");
                 }
-                EducationLoan educationLoan = educationLoanMapper.toEntity(educationLoanDto);
-                loan = educationLoan;
+                StudentEducationLoan studentEducationLoan = educationLoanMapper.toEntity(educationLoanDto);
+                loan = studentEducationLoan;
                 break;
 
             default:
@@ -140,7 +140,7 @@ public class LoanServiceImpl implements LoanService {
 
         loan.setLoanAmount(loanDto.getLoanAmount());
         loan.setInterestRate(loanDto.getInterestRate());
-        loan.setTenure(loanDto.getTenure());
+//        loan.setTenure(loanDto.getTenure());
 
         switch (loan.getLoanType()) {
             case PERSONAL:
@@ -153,7 +153,7 @@ public class LoanServiceImpl implements LoanService {
                 if (!(loanDto instanceof EducationLoanDto educationLoanDto)) {
                     throw new RuntimeException("Expected EducationLoanDto");
                 }
-                educationLoanMapper.updateEntity(educationLoanDto, (EducationLoan) loan);
+                educationLoanMapper.updateEntity(educationLoanDto, (StudentEducationLoan) loan);
                 break;
             case HOME:
                 if (!(loanDto instanceof HomeLoanDto homeLoanDto)) {

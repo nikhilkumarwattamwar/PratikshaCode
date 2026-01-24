@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue("EDUCATION")
-public class EducationLoan extends Loan {
+public class StudentEducationLoan extends Loan {
 
     @OneToOne
     @JoinColumn(name = "courseDetailId", nullable = true)
@@ -24,6 +24,30 @@ public class EducationLoan extends Loan {
     @JoinColumn(name = "educationDetailId", nullable = true)
     EducationDetails educationDetails;
 
-    private Double courseFee;
+//
+//    private EducationLoanCategory category;
+//
+//    private CourseCategory courseCategory;
+//
+//    private String institutionName;
+//
+//    private String country;
+//
+//    private Integer studentAge;
+//
+//    private String academicPercentage;
+//
+//    private Double courseFee;
+//
+//    private InterestType interestType;
+//
+//    private Boolean isFemaleStudent = false;
+//
+//    private Integer moratoriumMonths;
+//
+//    private String collateralType;
+
+
+
 
 }

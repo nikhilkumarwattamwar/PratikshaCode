@@ -1,10 +1,9 @@
-package com.loanapp.loanManagementSystem.contollers.admin;
+package com.loanapp.loanManagementSystem.controllers.admin;
 
 import com.loanapp.loanManagementSystem.dto.loan.LoanDto;
 import com.loanapp.loanManagementSystem.dto.user.UserDto;
 import com.loanapp.loanManagementSystem.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

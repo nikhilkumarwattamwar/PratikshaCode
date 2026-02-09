@@ -11,7 +11,7 @@ import com.loanapp.loanManagementSystem.enums.AddressType;
 import com.loanapp.loanManagementSystem.enums.Role;
 import com.loanapp.loanManagementSystem.exception.BadRequestException;
 import com.loanapp.loanManagementSystem.exception.ResourceNotFoundException;
-import com.loanapp.loanManagementSystem.integrate.FinClient;
+import com.loanapp.loanManagementSystem.integrate.WebClientBuild;
 import com.loanapp.loanManagementSystem.mapper.user.AddressMapper;
 import com.loanapp.loanManagementSystem.mapper.user.UserMapper;
 import com.loanapp.loanManagementSystem.entities.user.User;
@@ -28,27 +28,27 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     UserMapper mapper;
     AddressMapper addressMapper;
-    FinClient finClient;
+    WebClientBuild webClientBuild;
 
-    public UserServiceImpl(UserRepository userRepository, UserMapper mapper, AddressMapper addressMapper, FinClient finClient) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper mapper, AddressMapper addressMapper, WebClientBuild webClientBuild) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.addressMapper = addressMapper;
-        this.finClient = finClient;
+        this.webClientBuild = webClientBuild;
     }
 
     @Transactional
     @Override
     public RegistrationResponseDto register(UserDto dto) {
         Role role = dto.getRole() != null ? dto.getRole() : Role.USER;
-        FinClient.AuthRequest request = new FinClient.AuthRequest();
+        WebClientBuild.AuthRequest request = new WebClientBuild.AuthRequest();
         request.setName(dto.getName());
         request.setEmail(dto.getEmail());
         request.setPassword(dto.getPassword());
         request.setRole(role.name());
 
         try {
-            finClient.register(request)
+            webClientBuild.register(request)
                     .onErrorMap(ex -> new RuntimeException("Auth service unavailable"))
                     .block();
         } catch (Exception e) {
@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
             throw new BadRequestException("Email and password are required");
         }
 
-        LoginResponseDto response = finClient.login(dto)
+        LoginResponseDto response = webClientBuild.login(dto)
                 .onErrorMap(ex -> new RuntimeException("Auth service unavailable"))
                 .block();
 

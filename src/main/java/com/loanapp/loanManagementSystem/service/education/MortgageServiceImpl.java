@@ -45,4 +45,9 @@ public class MortgageServiceImpl implements MortgageService{
 
         Mortgage released=mortgageRepository.save(mortgage);
     }
+
+    @Override
+    public boolean existsByCollateralId(Long collateralId) {
+        return mortgageRepository.existsByCollateralId(collateralId);
+    }
 }

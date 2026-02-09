@@ -1,6 +1,5 @@
 package com.loanapp.loanManagementSystem.strategy;
 
-import com.loanapp.loanManagementSystem.dto.education.EducationLoanDetailsDto;
 import com.loanapp.loanManagementSystem.dto.education.InterestDetailsDto;
 import com.loanapp.loanManagementSystem.entities.educationLoan.EducationLoan;
 import com.loanapp.loanManagementSystem.enums.InterestType;
@@ -11,29 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DomesticInterestCalculationStrategy implements InterestCalculationStrategy{
-    private static final double FIXED_RATE = 9.5;
+public class InternationalCalculationStrategy implements InterestCalculationStrategy {
+
+    private static final double FIXED_RATE = 11.25;
     private static final double FEMALE_DISCOUNT = 0.25;
+
 
     @Autowired
     private  RaporateService repoRateService;
     @Autowired
     private  GovernmentSchemeServiceImpl governmentSchemeService;
 
-    public DomesticInterestCalculationStrategy(RaporateService repoRateService, GovernmentSchemeServiceImpl governmentSchemeService) {
-        this.repoRateService = repoRateService;
-        this.governmentSchemeService = governmentSchemeService;
-    }
-
-
     @Override
-    public boolean hasLocation(StudyLocation location) {
-        return location == StudyLocation.DOMESTIC;
+    public boolean hasLocation(StudyLocation studyLocation) {
+        return studyLocation == StudyLocation.INTERNATIONAL;
     }
 
     @Override
     public InterestDetailsDto calculate(EducationLoan loan) {
-
         double principal = loan.getLoanAmount().doubleValue();
         int years = loan.getMoratoriumPeriodMonths() / 12;
 
@@ -93,5 +87,7 @@ public class DomesticInterestCalculationStrategy implements InterestCalculationS
 
         return amount - principal;
     }
+
+
 }
 

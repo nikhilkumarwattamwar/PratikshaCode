@@ -9,5 +9,5 @@ import java.util.UUID;
 
 public interface CoApplicantRepository extends JpaRepository<CoApplicant,Long> {
 
-    Optional<List<CoApplicant>> findByLoanId(UUID loanId);
+    Optional<List<CoApplicant>> findByEducationLoanId(UUID loanId);
 }

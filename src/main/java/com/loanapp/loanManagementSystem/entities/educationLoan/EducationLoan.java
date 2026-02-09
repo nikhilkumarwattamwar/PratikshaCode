@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -67,12 +68,14 @@ public class EducationLoan {
     private Double approvedAmount;
     private Double disbursedAmount;
 
+    private LocalDate disbursementDate;
+
 
     @Column(name = "collateral_required")
     private Boolean collateralRequired;
 
-    @OneToMany(mappedBy = "educationLoan")
-    private List<GovernmentScheme> governmentSchemes;
+    @OneToOne(mappedBy = "educationLoan")
+    private GovernmentScheme governmentSchemes;
 
     @OneToMany(mappedBy = "educationLoan", cascade = CascadeType.ALL)
     private List<Collateral> collaterals;

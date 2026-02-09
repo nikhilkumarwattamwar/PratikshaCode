@@ -9,5 +9,5 @@ import java.util.UUID;
 
 public interface InstitutionDetailsRepository extends JpaRepository<Institution,Long> {
 
-    Optional<Institution>  findByEducationId(UUID educationID);
+    Optional<Institution>  findByEducationLoanId(UUID educationID);
 }

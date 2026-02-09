@@ -7,4 +7,6 @@ import java.util.UUID;
 public interface CollateralService {
 
     CollateralDetailsDto addCollateralDetails(UUID loanId,CollateralDetailsDto collateralDetailsDto);
+    void validateCollateral(UUID loanId);
 }
+

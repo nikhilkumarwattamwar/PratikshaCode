@@ -1,4 +1,4 @@
-package com.loanapp.loanManagementSystem.dto.user;
+package com.loanapp.loanManagementSystem.dto.education;
 
 import com.loanapp.loanManagementSystem.enums.InterestType;
 import lombok.AllArgsConstructor;
@@ -13,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InterestDetailsDto {
+
     private InterestType interestType;
 
     private Boolean isStudentFemale;
@@ -31,6 +32,7 @@ public class InterestDetailsDto {
     private Integer studyPeriodYears;
     private Double calculatedInterestDuringStudy;
     private Double totalAmountToRepay;
+
 
     private UUID educationLoanId;
 }

@@ -15,6 +15,7 @@ import java.util.UUID;
 @Service
 public class InstitutionDetailsServiceImpl implements InstitutionDetailsService{
 
+    @Autowired
     InstitutionDetailsMapper mapper;
     @Autowired
     InstitutionDetailsRepository repository;
@@ -29,7 +30,7 @@ public class InstitutionDetailsServiceImpl implements InstitutionDetailsService{
     @Override
     public InstitutionDetailsDto getInstitutionDetails(UUID id) {
 
-        Institution existing =repository.findByEducationId(id).orElseThrow(()-> new ResourceNotFoundException("Loan id not found"));
+        Institution existing =repository.findByEducationLoanId(id).orElseThrow(()-> new ResourceNotFoundException("Loan id not found"));
         return mapper.toDto(existing);
     }
 }

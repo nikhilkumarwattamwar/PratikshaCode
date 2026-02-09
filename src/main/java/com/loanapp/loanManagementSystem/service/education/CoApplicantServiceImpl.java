@@ -9,10 +9,11 @@ import com.loanapp.loanManagementSystem.exception.ResourceNotFoundException;
 import com.loanapp.loanManagementSystem.mapper.education.CoApplicantMapper;
 import com.loanapp.loanManagementSystem.repository.education.CoApplicantRepository;
 import com.loanapp.loanManagementSystem.repository.education.EducationLoanRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
-
+@Service
 public class CoApplicantServiceImpl implements CoApplicantService {
 
     EducationLoanRepository educationLoanRepository;
@@ -39,7 +40,7 @@ public class CoApplicantServiceImpl implements CoApplicantService {
         EducationLoan educationLoan=educationLoanRepository.findById(loanID)
                 .orElseThrow(()->new ResourceNotFoundException("Loan id not found"));
 
-        List<CoApplicant> coApplicantList=coApplicantRepository.findByLoanId(loanID)
+        List<CoApplicant> coApplicantList=coApplicantRepository.findByEducationLoanId(loanID)
                 .orElseThrow(()->new ResourceNotFoundException("CoApplicant not found for given education loan id"));
 
         if(coApplicantList.isEmpty()){
@@ -81,7 +82,7 @@ public class CoApplicantServiceImpl implements CoApplicantService {
 
     @Override
     public List<CoApplicantDetailsDto> getCoApplicantDetails(UUID loanId){
-        List<CoApplicant> coApplicantList=coApplicantRepository.findByLoanId(loanId)
+        List<CoApplicant> coApplicantList=coApplicantRepository.findByEducationLoanId(loanId)
                 .orElseThrow(()->new ResourceNotFoundException("CoApplicant not found for the given education loan id"));
 
         return coApplicantList.stream().map(coApplicant -> mapper.toDto(coApplicant)).toList();

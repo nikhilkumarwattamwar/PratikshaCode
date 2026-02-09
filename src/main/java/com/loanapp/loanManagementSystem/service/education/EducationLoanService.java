@@ -9,4 +9,6 @@ public interface EducationLoanService {
 
     EducationLoanDetailsDto applyLoan(UUID userId, EducationLoanDetailsDto educationLoanDto);
 
+    void approveLoan(UUID loanId);
+    void disburseLoan(UUID loanId);
 }

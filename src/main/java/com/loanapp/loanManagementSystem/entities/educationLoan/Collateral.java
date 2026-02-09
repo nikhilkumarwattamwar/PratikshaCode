@@ -36,7 +36,7 @@ public class Collateral {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "loan_id")
+    @JoinColumn(name = "education_loan_id")
     private EducationLoan educationLoan;
 
     @OneToOne(mappedBy = "collateral")

@@ -8,4 +8,6 @@ public interface MortgageService {
 
     void releaseMortgage(Long collateralId);
 
+    boolean existsByCollateralId(Long collateralId);
+
 }

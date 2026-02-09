@@ -9,4 +9,6 @@ public interface MortgageRepository extends JpaRepository<Mortgage,Long> {
 
 
     Optional<Mortgage> findByCollateralId(Long collateralId);
+
+    boolean existsByCollateralId(Long collateralId);
 }

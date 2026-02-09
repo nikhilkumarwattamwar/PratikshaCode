@@ -10,19 +10,19 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Component
-public class FinClient {
+public class WebClientBuild {
 
 
-    private static final Logger log = LoggerFactory.getLogger(FinClient.class);
+    private static final Logger log = LoggerFactory.getLogger(WebClientBuild.class);
 
     private final WebClient webClient;
     private String registerEndpoint;
     private String loginEndpoint;
 
-    public FinClient(WebClient.Builder builder,
-                     @Value("${fin.service.base-url}")String baseUrl,
-                     @Value("${fin.service.auth.register-endpoint}")String registerEndpoint,
-                     @Value("${fin.service.auth.login-endpoint}")String loginEndpoint) {
+    public WebClientBuild(WebClient.Builder builder,
+                          @Value("${fin.service.base-url}")String baseUrl,
+                          @Value("${fin.service.auth.register-endpoint}")String registerEndpoint,
+                          @Value("${fin.service.auth.login-endpoint}")String loginEndpoint) {
 
         this.webClient = builder
                 .baseUrl(baseUrl)

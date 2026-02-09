@@ -49,6 +49,7 @@ public class CoApplicant {
     private Integer creditScore;
 
     @ManyToOne
+    @JoinColumn(name = "education_loan_id")
     private EducationLoan educationLoan;
 
 }

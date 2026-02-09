@@ -30,7 +30,7 @@ public class LoanServiceImpl implements LoanService {
     PersonalLoanMapper personalLoanMapper;
 
     @Autowired
-    EducationLoanMapper educationLoanMapper;
+    EducationMap educationMap;
 
     @Autowired
     BusinessMapper businessMapper;
@@ -82,7 +82,7 @@ public class LoanServiceImpl implements LoanService {
                 if (!(loanDto instanceof EducationLoanDto educationLoanDto)) {
                     throw new RuntimeException("Expected EducationLoanDto");
                 }
-                StudentEducationLoan studentEducationLoan = educationLoanMapper.toEntity(educationLoanDto);
+                StudentEducationLoan studentEducationLoan = educationMap.toEntity(educationLoanDto);
                 loan = studentEducationLoan;
                 break;
 
@@ -153,7 +153,7 @@ public class LoanServiceImpl implements LoanService {
                 if (!(loanDto instanceof EducationLoanDto educationLoanDto)) {
                     throw new RuntimeException("Expected EducationLoanDto");
                 }
-                educationLoanMapper.updateEntity(educationLoanDto, (StudentEducationLoan) loan);
+                educationMap.updateEntity(educationLoanDto, (StudentEducationLoan) loan);
                 break;
             case HOME:
                 if (!(loanDto instanceof HomeLoanDto homeLoanDto)) {

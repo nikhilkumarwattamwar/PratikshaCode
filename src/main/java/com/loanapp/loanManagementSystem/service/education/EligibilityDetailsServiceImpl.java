@@ -19,8 +19,6 @@ public class EligibilityDetailsServiceImpl implements EligibilityDetailsService{
     @Autowired
     EligibilityDetailsRepository eligibilityDetailsRepository;
     @Autowired
-    EligibilityDetails eligibilityDetails;
-    @Autowired
     EligibilityDetailsMapper mapper;
     @Autowired
     EducationLoanRepository educationLoanRepository;

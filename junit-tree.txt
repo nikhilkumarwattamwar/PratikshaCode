@@ -1,0 +1,27 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.loanapp:loanManagementSystem >------------------
+[INFO] Building loan-management-system 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.9.0:tree (default-cli) @ loanManagementSystem ---
+[INFO] com.loanapp:loanManagementSystem:jar:0.0.1-SNAPSHOT
+[INFO] \- org.springframework.boot:spring-boot-starter-test:jar:4.0.0:test
+[INFO]    +- org.junit.jupiter:junit-jupiter:jar:5.14.0:test (version managed from 6.0.1)
+[INFO]    |  +- org.junit.jupiter:junit-jupiter-api:jar:5.14.0:test (version managed from 5.14.0)
+[INFO]    |  |  \- org.junit.platform:junit-platform-commons:jar:1.14.0:test (version managed from 1.14.0)
+[INFO]    |  +- org.junit.jupiter:junit-jupiter-params:jar:5.14.0:test (version managed from 5.14.0)
+[INFO]    |  |  \- (org.junit.jupiter:junit-jupiter-api:jar:5.14.0:test - version managed from 5.14.0; omitted for duplicate)
+[INFO]    |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.14.0:test (version managed from 5.14.0)
+[INFO]    |     +- org.junit.platform:junit-platform-engine:jar:1.14.0:test (version managed from 1.14.0)
+[INFO]    |     |  \- (org.junit.platform:junit-platform-commons:jar:1.14.0:test - version managed from 1.14.0; omitted for duplicate)
+[INFO]    |     \- (org.junit.jupiter:junit-jupiter-api:jar:5.14.0:test - version managed from 5.14.0; omitted for duplicate)
+[INFO]    \- org.mockito:mockito-junit-jupiter:jar:5.20.0:test (version managed from 5.20.0)
+[INFO]       \- (org.junit.jupiter:junit-jupiter-api:jar:5.14.0:test - version managed from 5.13.4; omitted for duplicate)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.271 s
+[INFO] Finished at: 2025-12-29T13:23:40+05:30
+[INFO] ------------------------------------------------------------------------
